@@ -32,6 +32,8 @@
 - Các cpu có xung nhịp (ghz) càng cao hơn cho phép thực hiện nhiều lệnh hơn trong một khoảng thời gian nhất định.
 - Lõi (core) là một phần của bộ xử lý thực hiện việc đọc và thực hiện các hướng dẫn.
 
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
 ## 3. Bit và Byte
 
 - Lưu trữ thông tin trong máy tính chỉ đơn giản là cài đặt một chuỗi các công tắc bật hoặc tắt.
@@ -40,6 +42,8 @@
 - Đơn vị lưu trữ tối thiểu trong máy tính là một byte.
 - **1TB = 1.000GB = 1.000.000MB = 1.000.000.000 KB = 1.000.000.000.000 Byte**
 
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
 ## 4. Memory
 
 - Bao gồm một chuỗi byte được sắp xếp để lưu trữ chương trình.
@@ -47,6 +51,14 @@
 - Mỗi byte trong bộ nhớ có một địa chỉ duy nhất để xác định vị trí byte để lưu trữ và truy xuất dữ liệu.
 - Do các byte trong bộ nhớ có thể được truy cập theo bất kỳ thứ tự nào nên còn được gọi là **RAM - random access memory**.
 
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
 ## 5. Thiết bị lưu trữ
 
 - Có 4 loại chính của thiết bị lưu trữ: **Ổ đĩa từ (HDD, SSD), (CD, DVD), USB, Clound**.
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## Xem thêm bài viết khác
+
+- [Operating Systems](day2.md)
