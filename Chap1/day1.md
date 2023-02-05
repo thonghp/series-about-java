@@ -10,15 +10,17 @@
 
 ## 1. Máy tính là gì
 
-- Là một thiết bị điện tử lưu trữ và xử lý dữ liệu
-- Phần cứng bao gồm:
+- Là một thiết bị điện tử lưu trữ và xử lý dữ liệu.
+- Bao gồm phần cứng và phần mềm.
+- Phần cứng có thể chạm vào được bao gồm:
   - Central processing unit (CPU)
   - Memory
   - Thiết bị lưu trữ (disk, CD,...)
   - Thiết bị đầu vào (chuột, bàn phím,...)
   - Thiết bị đầu ra (màn hình, máy in,...)
   - Thiết bị giao tiếp (modem,...)
-- Các phần cứng được kết nối với nhau thông qua **bus**
+  - Các phần cứng được kết nối với nhau thông qua **bus**
+- Phần mềm là các chương trình máy tính  
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
 
@@ -46,15 +48,18 @@
 
 ## 4. Memory
 
-- Bao gồm một chuỗi byte được sắp xếp để lưu trữ chương trình.
-- Một chương trình và dữ liệu của nó phải được chuyển vào bộ nhớ của máy tính trước khi chúng có thể được CPU thực thi.
+- Để lưu trữ chương trình và hướng dẫn cpu thực hiện.
+- Một đơn vị bộ nhớ là một chuỗi byte được sắp xếp theo thứ tự.
 - Mỗi byte trong bộ nhớ có một địa chỉ duy nhất để xác định vị trí byte để lưu trữ và truy xuất dữ liệu.
+- Một chương trình và dữ liệu của nó phải được chuyển vào bộ nhớ của máy tính trước khi chúng có thể được CPU thực thi.
 - Do các byte trong bộ nhớ có thể được truy cập theo bất kỳ thứ tự nào nên còn được gọi là **RAM - random access memory**.
+- Dữ liệu sẽ mất đi khi tắt máy.
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
 
 ## 5. Thiết bị lưu trữ
 
+- Chương trình và dữ liệu được lưu vĩnh viễn trên thiết bị lưu trữ và di chuyển đến memory khi sử dụng chúng.
 - Có 4 loại chính của thiết bị lưu trữ: **Ổ đĩa từ (HDD, SSD), (CD, DVD), USB, Clound**.
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
