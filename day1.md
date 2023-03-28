@@ -1,0 +1,11 @@
+# COMPUTER
+
+Tìm hiểu về máy tính và phần cứng máy tính.
+
+![Computer](/assets/day1-computer.png)
+
+[Tải PDF ở đây](/pdf/computer.pdf)
+
+## Xem thêm bài viết khác
+
+- [Operating Systems](day2.md)
