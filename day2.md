@@ -1,0 +1,12 @@
+# Operating Systems
+
+Là chương trình quan trọng nhất chạy trên máy tính. Nó quản lý và điều khiển các hoạt động của máy tính.
+
+![Computer](/assets/day2-os.png)
+
+[Tải PDF ở đây](/pdf/os.pdf)
+
+## Xem thêm bài viết khác
+
+- [Computer](day1.md)
+- [Java](day3.md)
