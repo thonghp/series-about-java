@@ -23,10 +23,10 @@ public class DemoJavaProgram {
 }
 ```
 
-- Đặt tên class phải viết hoa mỗi chữ cái đầu tiên do java **case sensitive** ==> phân biệt chữ hoa chữ thường.
+- Đặt tên class phải viết hoa mỗi chữ cái đầu tiên do java phân biệt chữ hoa chữ thường - **case sensitive**.
 - **`public`** là một access modifier và không thể đảo thứ tự **`public`** với **`class`**.
 - Phương thức **`main`** để thực thi những gì nằm trong nó.
-- **`System.out.println("<message>")`** ==> gọi method **`println()`** của Object **`System.out`** và in ra màn hình console.
+- **`System.out.println("<message>")` ==>** gọi method **`println()`** của Object **`System.out`** và in ra màn hình console.
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
 
@@ -34,7 +34,7 @@ public class DemoJavaProgram {
 
 - **`\\`** comment với nội dung ngắn và chỉ trên 1 dòng.
 - **`/* */`** comment khối với nội dung mô tả nhiều.
-- **`/** \*/`\*\* comment dành cho document (thường là document API).
+- **`/** */`** comment dành cho document (thường là document API).
 
 Quy tắc khi comment
 
@@ -71,23 +71,23 @@ nextDouble() ==> đọc giá trị double
 
 ## 4. Quy tắc đặt tên
 
-- Thiên về kiểu camel.
+- Thiên về kiểu **camel**.
 - Bắt đầu bằng chữ thường, **`$`** hay **`_`** và không nên bắt đầu bằng number hay ký hiệu khác.
-  - Nhưng không nên dùng các ký hiệu **`$`** và **\_** để đặt đầu tiên.
+  - Nhưng không nên dùng các ký hiệu **`$`** và **\_** để đặt tên ở vị trí đầu tiên.
 - Không sử dụng java keyword để đặt tên.
   - Có 2 keyword không sử dụng trong java là **`const, goto`**.
 
 ![keyword in java](/assets/keyword.jpg)
 
-**Các trường hợp đặt tên**
+**Cách đặt tên**
 
-- Viết hoa đầu mỗi cụm từ ==> Vd: HelloWorld
+- **Viết hoa đầu mỗi cụm từ ==> Vd: HelloWorld**
   - **`class`** sử dụng noun ==> Vd: System
   - **`interface`** sử dụng adjective ==> Vd: Runnable
-- Bắt đầu bằng chữ thường và đầu mỗi cụm chữ sẽ viết hoa ==> Vd: doSomething
-  - Method sử dụng verb-noun ==> Vd: getName() 
+- **Bắt đầu bằng chữ thường và đầu mỗi cụm chữ sẽ viết hoa ==> Vd: doSomething**
+  - **`method`** sử dụng verb-noun ==> Vd: getName() 
     - Các prefix thường dùng **`do, get, set, is, add,...`**
-  - variable có nghĩa và ngắn ==> Vd: firstName
+  - **`variable`** có nghĩa và ngắn ==> Vd: firstName
 - Constant nên viết hoa hết, phân cách giữa các cụm từ bằng **`_`** và bắt đầu có final ở trước. ==> Vd: MAX_SPEED
 - package nên viết thường hết, bắt đầu bằng **`domain.organization.name`** ==> **Vd: edu.nlu.exercise**
 
@@ -96,7 +96,7 @@ nextDouble() ==> đọc giá trị double
 ## 5. Variable
 
 - Dùng để biểu diễn các giá trị có thể thay đổi trong chương trình.
-- Chiếm số byte nhất định tuỳ vào data type.
+- Chiếm số byte nhất định tuỳ vào **`datatype`**.
 - Syntax khai báo biến: **`datatype variableName`**
 - Phải gán giá trị trước khi sử dụng biến.
 
@@ -113,4 +113,5 @@ int year = 2023; // declare and assign values
 
 ## Xem thêm bài viết khác
 
-- [Datatype - Operator - Math - Type Convention - Import](day2.md)
+- [Java](day3.md)
+- [Datatype - Operator - Math - Type Convention - Import](day5.md)
