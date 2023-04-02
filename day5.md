@@ -93,11 +93,11 @@ short myMaxShortValue = Short.MAX_VALUE;
 ### 1.2 Floating point
 
 - Còn gọi là dấu phẩy động, chia thành 2 loại: **`float, double`**.
-  - Kiểu float khi sử dụng bắt buộc phải có f java mới hiểu.
+  - Kiểu **`float`** khi sử dụng bắt buộc phải có **`f`** ở sau nếu không java sẽ hiểu là **`double`**.
   - Vd **`float a = 3.5F; // f hay F đều được`**.
 - **`float`** có **độ chính xác 8** chữ số trong khi **`double`** là **16**.
 - Có 3 giá trị đặc biệt trong floating point là **`positive infinity, negative infinity, NaN`**
-- Dấu phẩy động không thích hợp trong tính toán tài chính vì nó không làm tròn.
+- Dấu phẩy động không thích hợp trong tính toán tài chính vì nó không làm tròn chính xác.
   - Vd **`2.0 - 1.1 = 0.8999999...`**
   - Muốn chính xác thì dùng **`BigDecimal`**
 
@@ -366,7 +366,7 @@ if (a instanceof X) // true
 
 - Thăng hạng toán tử là trình biên dịch sẽ convert type thành type khác cho phù hợp.
 - Áp dụng cho biểu thức 2 toán tử
-  - Nếu toán tử có type là **`byte, short, char`** => promotion lên **`int`**.
+  - Nếu toán tử có type là **`byte, short, char` ==>** promotion lên **`int`**.
   - 1 trong 2 toán tử có cái lớn hơn thì ưu tiên promotion theo cái lớn hơn.
 
 ```java
@@ -509,4 +509,5 @@ System.out.println(typeCastInt); // 3
 
 ## Xem thêm bài viết khác
 
-- [Comment - scanner - variable](day1.md)
+- [Comment - scanner - variable](day4.md)
+- [If - Switch](day6.md)
