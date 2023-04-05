@@ -439,22 +439,78 @@ System.out.println(a); // 12
 
 Các phương thức trong lớp **`Math`** đều là **`static`** method.
 
+**Làm tròn**
+
+```java
+// làm tròn lên
+System.out.println(Math.ceil(1.4)); // 2.0
+System.out.println(Math.ceil(-2.1)); // -2.0
+
+// làm tròn xuống
+System.out.println(Math.floor(1.7)); // 1.0
+System.out.println(Math.floor(-2.1)); // -3.0
+
+// từ mức 0.5 làm tròn lên, dưới làm tròn xuống
+System.out.println(Math.rint(1.49)); // 1.0
+System.out.println(Math.rint(1.5)); // 2.0
+System.out.println(Math.rint(-1.5)); // - 2.0
+System.out.println(Math.rint(-1.49)); // -1.0
+
+/*
+ * return (int)Math.floor(x + 0.5) nếu là float
+ * return (long)Math.floor(x + 0.5) nếu là double
+ */
+System.out.println(Math.round(2.5f)); // 3 int
+System.out.println(Math.round(2.49f)); // 2 int
+System.out.println(Math.round(1.49)); // 1 long
+System.out.println(Math.round(1.5)); // 2 long
+System.out.println(Math.round(-1.51)); // -2 long
+System.out.println(Math.round(-1.5)); // -1 long
+```
+
+**Max, Min, Abs**
+
 ```java
 System.out.println(Math.abs(-4.7)); // 4.7
-System.out.println(Math.ceil(1.4)); // 2.0
-System.out.println(Math.floor(1.7)); // 1.0
-System.out.println(Math.round(1.49)); // 1
-System.out.println(Math.round(1.5)); // 2
 System.out.println(Math.max(5, 10)); // 10
 System.out.println(Math.min(5.2, 10)); // 5.2
+```
 
+**Random**
+
+```java
+System.out.println(Math.random()); // return 0.0 < x < 1.0
+
+// return giá trị từ 0 <= value < 2
+System.out.println((int)(Math.random() * 2)); 
+
+// trả về giá trị từ a <= value <= a + b - 1
+a + (int)(Math.random() * b);
+```
+
+**Lượng giác**
+
+```java
+Math.sin(radians); // Trả về sin của 1 góc tính bằng radian
+Math.cos(radians); // Trả về cos của 1 góc tính bằng radian
+Math.tan(radians); // Trả về tan của 1 góc tính bằng radian
+Math.toRadians(degree); // Trả về góc tính bằng radian
+Math.toDegrees(radians); // Trả về góc tính bằng độ
+Math.asin(a); // Trả về góc cho hàm nghịch đảo của sin theo đơn vị radian
+Math.acos(a); // Trả về góc cho hàm nghịch đảo của cos theo đơn vị radian
+Math.atan(a); // Trả về góc cho hàm nghịch đảo của tan theo đơn vị radian
+```
+
+**Số mũ**
+
+![exponent](/assets/day5-exponent.png)
+
+```java
 System.out.println(Math.sqrt(64)); // 8.0
 System.out.println((double)Math.sqrt(-3)); // NaN tương tự cho float
 System.out.println((int)Math.sqrt(-3)); // 0
 
 System.out.println(Math.pow(2, 3)); // 2 ^ 3 = 8.0
-System.out.println(Math.random()); // return 0.0 < x < 1.0
-System.out.println((int) (Math.random() * 2)); // return giá trị từ 0 <= value < 2
 ```
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
