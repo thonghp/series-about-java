@@ -9,7 +9,6 @@
   - [1.4 Sự khác nhau giữa primitive và reference](#14-sự-khác-nhau-giữa-primitive-và-reference)
 - [2. Operator](#2-operator)
   - [2.1 Arithmetic](#21-arithmetic)
-  - [Lưu ý](#lưu-ý)
   - [2.2 Unary](#22-unary)
   - [2.3 Assignment](#23-assignment)
   - [2.4 Relational](#24-relational)
