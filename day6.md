@@ -1,0 +1,298 @@
+# If - Switch
+
+## Mục lục nội dung
+
+- [1. Conditional statement](#1-conditional-statement)
+  - [1.1 If](#11-if)
+  - [1.2 If else](#12-if-else)
+  - [1.3 If else if](#13-if-else-if)
+  - [1.4 Nested if](#14-nested-if)
+  - [1.5 Viết tắt gây hiểu nhầm trong if](#15-viết-tắt-gây-hiểu-nhầm-trong-if)
+- [2. Switch](#2-switch)
+  - [2.1 Switch truyền thống](#21-switch-truyền-thống)
+  - [2.2 Switch version mới](#22-switch-version-mới)
+
+## 1. Conditional statement
+
+### 1.1 If
+
+Câu lệnh **`if`** sẽ được thực thi khi điều kiện là **`true`**.
+
+**Syntax**
+
+```java
+if (condition) { // condition true mới excute code trong block
+  // statement
+}
+```
+
+**Vd**
+
+```java
+boolean isValue = true;
+if (isValue) { // isValue = true
+  System.out.println("hello");
+}
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 1.2 If else
+
+Câu lệnh **`if`** sẽ được thực thi khi điều kiện **`true`** và câu lệnh **`else`** sẽ được thực thi khi điều kiện **`false`**.
+
+**Syntax**
+
+```java
+if (condition) {
+    // statement
+} else {
+  // statement
+}
+```
+
+**Vd**
+
+```java
+boolean isValue = false;
+// in ra hi
+if (isValue) {
+  System.out.println("hello");
+} else {
+  System.out.println("hi");
+}
+
+// gán isValue = true
+if (isValue = true) { // true => excute block
+  System.out.println("condition is assigned to true");
+}
+System.out.println(isValue); // true do isValue được gán = true
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 1.3 If else if
+
+**`If ==> else if ==> else`**
+
+**Syntax**
+
+```java
+if (condition1) {
+    // statement1
+} else if (condition2) {
+    // statement2
+} else {
+    // statement3
+}
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 1.4 Nested if
+
+**Syntax**
+
+```java
+if (condition1) {
+  ...
+   if (condition2) {
+      // statement
+   }
+}
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 1.5 Viết tắt gây hiểu nhầm trong if
+
+**Hiểu sai {}**
+
+```java
+if (radius >= 0)
+  area = radius * radius * PI;
+  System.out.println("The area " + " is " + area);
+===================================================
+if (radius >= 0) { // good
+  area = radius * radius * PI;
+}
+System.out.println("The area " + " is " + area);
+```
+
+**If empty**
+
+```java
+if (radius >= 0);
+=============================
+if (radius >= 0) {}; // good
+```
+
+**True**
+
+```java
+if (even == true)
+==================
+if (even) // good
+```
+
+**Else**
+
+```java
+int i = 1, j = 2, k = 3;
+if (i > j)
+  if (i > k)
+     System.out.println("A");
+else
+     System.out.println("B");
+=============================
+int i = 1, j = 2, k = 3;
+if (i > j) // good
+  if (i > k)
+    System.out.println("A");
+  else
+    System.out.println("B");
+```
+
+**boolean**
+
+```java
+if (number % 2 == 0)
+  even = true;
+else
+  even = false;
+========================================
+boolean even = number % 2 == 0; // good
+```
+
+**print**
+
+```java
+if (inState) {
+  tuition = 5000;
+  System.out.println("The tuition is " + tuition);
+}
+else {
+  tuition = 15000;
+  System.out.println("The tuition is " + tuition);
+}
+==================================================
+if (inState) { // good
+  tuition = 5000;
+}
+else {
+  tuition = 15000;
+}
+System.out.println("The tuition is " + tuition);
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 2. Switch
+
+**Syntax**
+
+```java
+switch (switch-expression) {
+    case value1:
+        statement1;
+        break;
+    case valueN:
+        statementN;
+        break;
+    default:
+        statement(s)-for-default;
+```
+
+- **`switch-expression`** phải là kiểu **`char, byte, short, int, String, enum`** và các **`Wrapper`** tương ứng.
+- **`value1,...,valueN`** phải cùng kiểu với **`switch-expression`** và phải là duy nhất.
+- **`default`** là tuỳ chọn, sẽ thực thi nếu các **`case`** trên không thoả.
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.1 Switch truyền thống
+
+```java
+int switchTest = 10;
+switch (switchTest + 1 + 1) {
+    case 111:
+        System.out.println("bằng 111");
+        break;
+    case 10:
+        System.out.println("bang 10");
+        break;
+    case 10 + 1 + 1: // 12
+        System.out.println("bang 12");
+        break;
+} // return bang 12
+```
+
+**Nhiều trường hợp**
+
+```java
+switch (itemCode) {
+    case "A":
+    case "B":
+    case "C":
+        System.out.println("In ra ABC");
+        break;
+    case "a":
+    case "b":
+        System.out.println("In ra AB");
+        break;
+    default:
+        ...
+}
+```
+
+- Nếu không có **`break`** khi điều kiện thoả thì nó sẽ tiếp tục thực thi tiếp cho tới khi gặp **`break`**.
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.2 Switch version mới
+
+**Áp dụng java 12**
+
+```java
+int switchTest = 10;
+String assign = switch (switchTest + 1 + 1) {
+   case 111 -> "MỘT MỘT MỘT";
+   case 10 -> "MƯỜI";
+   case 10 + 1 + 1 -> "MƯỜI HAI";
+   default -> "";
+};
+System.out.println(assign); // muoi hai
+```
+
+- **Nhiều trường hợp**
+
+```java
+switch (itemCode) {
+    case "A", "B", "C":
+        System.out.println("chữ in hoa");
+        break;
+    case "a", "b":
+        System.out.println("chữ thường");
+        break;
+    default:
+        ...
+}
+```
+
+**Áp dụng java 13**
+
+```java
+String token = "abc";
+int tokenType = switch(token) {
+    case "123" : yield 0;
+    case "abc" : yield 1;
+    default : yield -1;
+};
+System.out.println(tokenType); // 1
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## Xem thêm bài viết khác
+
+- [Datatype - Operator - Math - Type Convention - Import](day5.md)
+- [Char - String](day7.md)
