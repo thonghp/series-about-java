@@ -107,15 +107,7 @@ short myMaxShortValue = Short.MAX_VALUE;
 - Đại diện là **`char`**, dùng để mô tả đơn vị trong bảng mã **`UTF-16`**.
 - Một vài escape thường dùng
 
-```java
-\b ==> backspace
-\t ==> tab
-\n ==> linefeed
-\r ==> carriage return
-\" ==> double quote
-\' ==> single quote
-\\ ==> backslash
-```
+![escape](/assets/day5-escape.png)
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
 
