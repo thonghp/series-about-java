@@ -105,9 +105,7 @@ short myMaxShortValue = Short.MAX_VALUE;
 ### 1.3 Character
 
 - Đại diện là **`char`**, dùng để mô tả đơn vị trong bảng mã **`UTF-16`**.
-- Một vài escape thường dùng
-
-![escape](/assets/day5-escape.png)
+- Xem phần **`char`** chi tiết [ở đây](day7.md)
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
 
