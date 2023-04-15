@@ -1,0 +1,521 @@
+# Char - String
+
+## Mục lục nội dung
+
+- [1. Char](#1-char)
+  - [1.1 Cast char](#11-cast-char)
+  - [1.2 Method trong class Character](#12-method-trong-class-character)
+- [2. String](#2-string)
+  - [2.1 Syntax](#21-syntax)
+  - [2.2 length() và charAt()](#22-length-và-charat)
+  - [2.3 substring()](#23-substring)
+  - [2.4 Nối chuỗi](#24-nối-chuỗi)
+  - [2.5 indexOf()](#25-indexof)
+  - [2.6 lastIndexOf()](#26-lastindexof)
+  - [2.7 equals()](#27-equals)
+  - [2.8 equals() và == trong String](#28-equals-và--trong-string)
+  - [2.9 compareTo()](#29-compareto)
+  - [2.10 toLowerCase() và toUpperCase()](#210-tolowercase-và-touppercase)
+  - [2.11 trim()](#211-trim)
+  - [2.12 replace()](#212-replace)
+  - [2.13 startsWith() và endsWith()](#213-startswith-và-endswith)
+  - [2.14 contains()](#214-contains)
+  - [2.15 Ký tự đặc biệt và enscape](#215-ký-tự-đặc-biệt-và-enscape)
+  - [2.16 Ép kiểu](#216-ép-kiểu)
+  - [2.17 Split](#217-split)
+  - [2.18 Gán String vào char](#218-gán-string-vào-char)
+  - [2.19 intern()](#219-intern)
+  - [2.20 join()](#220-join)
+  - [2.21 repeat()](#221-repeat)
+  - [2.22 Empty và null](#222-empty-và-null)
+  - [2.23 Đọc string từ console](#223-đọc-string-từ-console)
+
+## 1. Char
+
+Các chữ cái ASCII sử dụng trong java.
+
+![character](/assets/day7-char.png)
+
+```java
+char letter = 97;
+System.out.println(letter); // a
+```
+
+### 1.1 Cast char
+
+```java
+char letter = (char)0XAB0041;
+System.out.println(letter); // A
+
+char ch = (char)65.25; // cast 65
+System.out.println(ch); // A
+
+int i = 'A';
+System.out.println(i); // 65
+
+int i = '2' + '3'; // (int)'2' = 50; (int)'3' = 51;
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 1.2 Method trong class Character
+
+```java
+System.out.println(Character.isDigit('a')); // false
+System.out.println(Character.isDigit('9')); // true
+System.out.println(Character.isLetter('a')); // true
+System.out.println(Character.isLowerCase('a')); // true
+System.out.println(Character.isUpperCase('A')); // true
+System.out.println(Character.toLowerCase('T')); // t
+System.out.println(Character.toUpperCase('q')); // Q
+System.out.println(Character.isLetterOrDigit('!')); // false
+
+System.out.println(Character.isWhitespace(' ')); // true
+System.out.println(Character.isWhitespace('\t')); // true
+System.out.println(Character.isWhitespace('\n')); // true
+System.out.println(Character.isWhitespace('\f')); // true
+System.out.println(Character.isWhitespace('\r')); // true
+```
+
+**Lưu ý**
+
+Các ký tự **`' ', \t, \f, \r, \n`** trong java được hiểu là **whitespace**
+
+**Một vài escape thường dùng**
+
+![escape](/assets/day7-escape.png)
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 2. String
+
+- Là một **`array`** chứa các ký tự không thể thay đổi - **`immutable`** khi tạo và **`literal - cố định`**.
+- Ký tự sẽ bao gồm cả khoảng trắng và index bắt đầu từ **`0 ==> length() - 1`**.
+- Luôn bắt đầu và kết thúc **`""`** ở phía trước và phía sau String được tạo.
+- Khi String được gán = **`null`**, lúc này các thao tác với method dành cho String sẽ gây ra lỗi runtime.
+
+### 2.1 Syntax
+
+```java
+String x = null; // trỏ vào vùng null
+String x = new String(null); // compile
+
+// tạo vùng object trong string
+String x = ""; // chuỗi rỗng
+String literal = "Hello"; // literal, POOL
+String x = new String(); // chuỗi rỗng
+String newKeyword = new String("hello");
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.2 length() và charAt()
+
+```java
+String message = "Welcome to java";
+```
+
+![length and charAt](/assets/day7-length-charat.png)
+
+- **`length()` ==>** trả về đô dài của String.
+- **`charAt(int)` ==>** trả về ký tự theo index chỉ định
+
+**Lưu ý**
+
+```java
+// 1, nếu truy cập vị trí ngoài phạm vi sẽ ném lỗi StringIndexOutOfBoundsException
+message.charAt(message.length());
+message.charAt(-1);
+message.charAt(15);
+
+// 2, chuỗi rỗng vẫn có length
+str = "";
+str.length(); // 0
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.3 substring()
+
+![substring](/assets/day7-substring.png)
+
+- **`substring(int)` ==>** trả về chuỗi con từ vị trí chỉ định đến hết chuỗi
+- **`substring(int, int)` ==>** trả về chuỗi con từ vị trí chỉ định 1 đến vị trí **trước** vị trí chỉ định 2
+
+### 2.4 Nối chuỗi
+
+Trả về chuỗi sau khi nối, ta có 2 cách nối.
+
+```java
+String firstName = "John";
+String lastName = "Doe";
+int age = 22;
+int dob = 2000;
+
+// không phân biệt kiểu sẽ tự ép qua string
+System.out.println(firstName + age + dob); // John222000
+System.out.println(age + dob + firstName); // 2022John
+System.out.println(firstName + 'D'); // JohnD
+
+// concat chỉ sử dụng khi 2 thằng cùng kiểu String
+firstName.concat(lastName); // JohnDoe
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.5 indexOf()
+
+Trả về index của text được chỉ định xuất hiện gần nhất, bắt đầu từ 0 và không có thì trả về -1.
+
+```java
+String str = "long thien thang thai";
+
+System.out.println(str.indexOf("th")); // c1, return 5
+// return string "th" bắt đầu tính từ vị trí 6 thay vì 0
+System.out.println(str.indexOf("th",6)); // c2, return 13
+
+// tương tự string nhưng áp dụng được cho cả char
+System.out.println(str.indexOf('a')); // 13
+System.out.println(str.indexOf('a',14)); // 19
+```
+
+### 2.6 lastIndexOf()
+
+Trả về index của text được chỉ định xuất hiện lần cuối cùng, bắt đầu từ 0 và không có thì trả về -1.
+
+```java
+String str = "abcd dabe fabg";
+
+System.out.println(str.indexOf("ab")); // c1, return 11
+System.out.println(str.indexOf("ab", 6)); // c2, return 6
+
+// áp dụng cho char
+System.out.println(str.lastIndexOf('a')); // 11
+System.out.println(str.lastIndexOf('a', 6)); // 6
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.7 equals()
+
+Để so sánh ta có thể sử dụng equals trong String.
+
+```java
+String str1 = "hello";
+String str2 = "hello";
+System.out.println(str1.equals(str2)); // true
+
+/*
+ * trường hợp str1 ta nên dùng thẳng là "hello".equals(str2)
+ * để tránh trường hợp nếu str1 là null sẽ gây lỗi
+ */
+```
+
+Ngoài ra ta có thể sử dụng **`equalsIgnoreCase()`** để khi so sánh không phân biệt chữ hoa hay chữ thường
+
+### 2.8 equals() và == trong String
+
+- **`==`** được sử dụng để so sánh tham chiếu (so sánh địa chỉ), kiếm tra xem cả 2 object có cùng trỏ đến cùng 1 vị trí bộ nhớ.
+  - Khi String gán cho 1 chuỗi thì ta có thể so sánh với **`==`** bởi vì lúc này giá trị nó được lưu vào **String pool (intern pool)**
+  - String pool là 1 vùng nhớ đặc biệt nằm trong heap dùng để lưu trữ các biến được khai báo theo kiểu gán **`""`**
+- **`equals()`** để so sánh nội dung bên trong của 2 object.
+
+![string pool](/assets/day7-stringpool.png)
+
+**Giải thích**
+
+- Khi ta khai báo **str1** lúc này giá trị **abc** sẽ được đưa vào string pool
+- Khi ta khai báo **str2** lúc này nó sẽ tìm trong string pool coi có chưa nếu rồi nó sẽ trỏ vào còn chưa thì nó tạo cái mới
+- Khi ta khai báo **str3** lúc này ta new một ô nhớ mới ở heap lúc này **str1** và **str3** không cùng địa chỉ
+- Nếu ta tạo **str4** giống **str3** thì tương tự **str4** cũng sẽ new một ô nhớ khác không cùng với **str3**
+- Vậy chỉ có thể dùng **`equals()`** nếu muốn kiểm tra nội dung mà khác địa chỉ 
+
+**Lưu ý**
+
+```java
+// --> lưu ý 1 vi phạm quy tắc bất biến trong string pool
+String s1 = "hello world";
+String s2 = "hello world";
+s1 = s1.substring(6); // world
+s2 = s2.substring(6); // world
+System.out.println(s1 == s2); // false
+/*
+ * - Tại sao đoạn code này lại không trả về true mặc dù cả 2 đều giống nhau
+ * - Thứ 1 String pool là literal (cố định) ko thể thay đổi được
+ * - Thứ 2 khi ta dùng substring lúc này chuỗi con được tạo ra không nằm 
+ *   trong String pool mà được tạo thành một đối tượng chuỗi mới trong heap
+ */
+
+String s1 = "hello";
+String s2 = "hello";
+s1 += " world";
+s2 += " world";
+System.out.println(s1 == s2); // false
+// tương tự như trên lúc này đã vi phạm quy tắc immutable
+
+// --> Lưu ý 2 sử dụng null và ""
+String str4 = null;
+String str5 = "";
+String str6 = new String();
+System.out.println(str4 == str5); // false
+System.out.println(str4 == null); // true
+System.out.println(str4.equals(null)); // exception
+System.out.println(s5.equals(str6)); // true
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.9 compareTo()
+
+So sánh từng ký tự trong chuỗi, nếu ký tự nào không bằng sẽ dừng lại ngay lúc đó
+
+```java
+String str1 = "abc";
+String str2 = new String("abc");
+String str3 = "Abc";
+String str4 = "ABc";
+String str5 = "def";
+String str7 = "abcde";
+String str8 = "abcef";
+
+// tính bằng cách lấy vị trí đầu tiên nếu khác nhau sẽ lấy chuỗi str1 - str2
+System.out.println(str1.compareTo(str2)); // 0
+System.out.println(str1.compareTo(str3)); // 32 (a-A === 97-65)
+System.out.println(str1.compareTo(str4)); // 32
+System.out.println(str1.compareTo(str5)); // -3
+System.out.println(str1.compareTo(null)); // nullpointer exception
+
+// mặc dù e và f đằng sau cũng khác nhưng chỉ lấy đầu tiên
+System.out.println(str7.compareTo(str8)); // -1
+```
+
+- Ngoài ra ta có thể sử dụng **`compareToIgnoreCase()`** để khi so sánh không phân biệt chữ hoa hay chữ thường
+- Nên sử dụng **`equals()`** trong so sánh giá trị, **`compareTo()`** trong sắp xếp và **`==`** trong reference.
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.10 toLowerCase() và toUpperCase()
+
+```java
+String txt = "Hello World";
+System.out.println(txt.toUpperCase());   // Outputs "HELLO WORLD"
+System.out.println(txt.toLowerCase());   // Outputs "hello world"
+```
+
+### 2.11 trim()
+
+Xóa [whitespace](#12-method-trong-class-character) ở đầu và cuối của 1 chuỗi
+
+```java
+String str = "  abc  ";
+System.out.println(str); // abc có space
+System.out.println(str.trim()); // xuất ra abc đã xóa space ở trước và sau
+```
+
+### 2.12 replace()
+
+Trả về String sau khi được thay thế bởi 1 ký tự hoặc String được chỉ định.
+
+```java
+String str = "Hello";
+System.out.println(str.replace('l', 'p')); // Heppo
+System.out.println(str.replace("lo", "de")); // Helde
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.13 startsWith() và endsWith()
+
+```java
+// startsWith() kiểm tra xem có phải bắt đầu bằng String chỉ định không.
+String str = "John";
+
+System.out.println(str.startsWith("jo")); // false
+System.out.println(str.startsWith("")); // true
+// kiểm tra vị trí bắt đầu nhưng tính từ vị trí chỉ định
+System.out.println(str.startsWith("oh",1)); // true
+
+// endsWith() kiểm tra xem có phải kết thúc bằng String chỉ định không.
+System.out.println(str.endsWith("hn")); // true
+System.out.println(str.endsWith("")); // true
+
+/**
+ * Một lưu ý quan trọng là chuỗi khi được gán giá trị sẽ luôn bắt đầu và
+ * kết thúc là "" mặc dù có sử dụng trim hay không thế nên startWith và
+ * endWith sẽ luôn trả về giá trị true
+ */ 
+```
+
+### 2.14 contains()
+
+Kiểm tra xem môt String có chứa một String khác không.
+
+```java
+String str = "Java";
+System.out.println(str.contains("Java")); // true
+System.out.println(str.contains("java")); // false
+System.out.println(str.contains(""));
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.15 Ký tự đặc biệt và enscape
+
+Xem các enscape trong java [ở đây](#12-method-trong-class-character)
+
+```java
+String txt = "thong \"bro\" "; // thong "bro"
+String txt = "thong \\ thai"; // thong \ thai
+// jđk mới đã hỗ trợ 's
+String txt = "thong\'s"; // thong's
+
+String str1 = "thong";
+String str2 = "thai";
+System.out.println(str1 + "\b"); // thon
+System.out.println(str1 + "\n" + str2); // thong xuống dòng thái
+System.out.println(str1 + "\t" + str2); // thong tab thai
+// \f dùng cho ngắt trang
+
+// thai (nhảy về đầu dòng) có tab ở trước sẽ xoá tab
+System.out.println("\t" + "\r" + str2);
+```
+
+### 2.16 Ép kiểu
+
+- Convert sang string có thể sử dụng **`valueOf`** với kiểu primitive hoặc kết hợp với **`""`**
+- Convert từ string sang kiểu khác có thể dùng **`parse`** tương ứng kiểu muốn convert
+
+```java
+// convert sang string
+int number = 12;
+String convert = String.valueOf(number); // c1
+String convert = number + ""; // c2
+
+// convert sang int
+int reverse = Integer.parseInt(convert);
+
+// convert trong char
+char[] c = s.toCharArray(); // convert string to char
+// ta có thể dùng valueOf
+String s = new String(c); // convert char to string 
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.17 Split
+
+- Tách một chuỗi thành một mảng các chuỗi con dựa trên một đối tượng phân tách nhất định
+- **`split(string)` ==>** tách thành các chuỗi con theo đối tượng phân tách
+- **`split(string, int)` ==>** tách thành các chuỗi con theo đối tượng phân tách và giới hạn số lần phân tách
+
+```java
+String str = "01/02/03/04/05";
+
+/*
+ * - tách các chuỗi theo /, không chỉ định limit có thể hiểu limit mặc định
+ * - ở đây được tính bằng cách số / có trong chuỗi + 1
+ * - ở ví dụ này có 4 dấu / ==> limit ở đây là 5
+ */
+String[] limit = str.split("/"); // [01, 02, 03, 04, 05] length là 5
+
+limit = str.split("/", 1); // [01/02/03/04/05] length là 1
+limit = str.split("/", 2); // [01, 02/03/04/05] length là 2
+limit = str.split("/", 3); // [01, 02, 03/04/05] length là 3
+
+// split nhiều khoảng trắng
+String str = "1 2  3   4    5";
+String[] parts = str.split("\\s+");
+System.out.println(Arrays.toString(parts)); // [1, 2, 3, 4, 5]
+
+// split thập cẩm
+String str = "1/2*3-4+5";
+String[] parts = str.split("[+-/*]"); // [1, 2, 3, 4, 5]
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.18 Gán String vào char
+
+```java
+String s = "helloscript";
+char[] dst = {'j', 'a', 'v', 'a', '1', '3', '0', '1', '5', '6', '7'};
+s.getChars(5, 11, dst, 4); // lấy từ vị trí 5 đến 10 của s gán vào vị trí 4 của dst
+System.out.println(dst); // javascript7
+```
+
+### 2.19 intern()
+
+```java
+String it1 = "intern";
+String it2 = new String("intern").intern();
+String it3 = new String("intern");
+String it4 = "intern".intern();
+
+System.out.println(it2==it1); // true
+System.out.println(it2==it3); // false
+System.out.println(it2==it4); // true
+
+/*
+ * Tạo chuỗi bằng intern() sẽ không tạo ra ở heap mà nó sẽ tìm trong string
+ * pool coi có chưa để nó tham chiếu vào, nên sử dụng intern() giống hệt gán
+ * chuỗi  chỉ khác chổ gán chuỗi ta phải chỉ định còn intern là sao chép
+ */
+```
+
+### 2.20 join()
+
+```java
+// S / M / L / XL
+String all = String.join(" / ", "S", "M", "L", "XL");
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.21 repeat()
+
+Áp dụng cho java 11 trở lên
+
+```java
+String repeated = "Java".repeat(3); // JavaJavaJava
+```
+
+### 2.22 Empty và null
+
+```java
+// --> 1. Kiểm tra chuỗi rỗng
+String str = "";
+if (str.isEmpty() || str.length() == 0 || str.equals("")){}
+
+// --> 2. Kiểm tra chuỗi không trống và khác null
+if (str != null && !str.isEmpty()) {}
+/*
+ * lưu ý ở đây bắt buộc phải str != null trước bởi vì nếu ta đảo thứ tự lại
+ * lúc này sẽ là !str.isEmpty() && str != null sẽ rất nguy hiểm vì khi str
+ * nhận vào là null lúc này sẽ exception ngay do null không thể gọi method 
+ * của string viết sãn thế nên phải viết như trên nếu str null thì nó dừng
+ * kiểm tra bên phải tránh gây ra lỗi exception
+ */
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 2.23 Đọc string từ console
+
+Có 2 cách là sử dụng **`next`** hoặc **`nextLine`** của lớp **`Scanner`**
+
+- Sử dụng **`next`** sẽ đọc giá trị nhập vào giữa mỗi **whitespace**
+  - Như ví dụ bên dưới khi ta nhập chuỗi **`Welcome to Java`** và nhấn phím enter lúc này con trỏ input sẽ di chuyển về phía đầu. Mỗi lần gọi **`next`** con trỏ sẽ di chuyển đi tới **whitespace** và in những gì trước **whitespace**
+
+![next scanner](/assets/day7-scanner-next.png)
+
+- Sử dụng **`nextLine`** sẽ đọc giá trị khi nhấn phím enter
+  - Như ví dụ bên dưới khi ta nhập chuỗi **`Welcome to Java`** và nhấn phím enter lúc này những gì đã được nhập sẽ được hiển thị lên console
+
+![next scanner](/assets/day7-scanner-nextline.png)
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## Xem thêm bài viết khác
+
+- [If - switch](day6.md)
+- [Format](day8.md)
