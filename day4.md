@@ -34,7 +34,7 @@ public class DemoJavaProgram {
 
 - **`\\`** comment với nội dung ngắn và chỉ trên 1 dòng.
 - **`/* */`** comment khối với nội dung mô tả nhiều.
-- **`/** */`** comment dành cho document (thường là document API).
+- **`/** \*/`\*\* comment dành cho document (thường là document API).
 
 Quy tắc khi comment
 
@@ -85,15 +85,16 @@ nextDouble() ==> đọc giá trị double
   - **`class`** sử dụng noun **==> Vd: User**
   - **`interface`** sử dụng adjective **==> Vd: Runnable**
 - **Bắt đầu bằng chữ thường và đầu mỗi cụm chữ sẽ viết hoa ==> Vd: doSomething**
-  - **`method`** sử dụng verb-noun 
+  - **`method`** sử dụng verb-noun
     - **`getName, setName, addNumbers, find, crud,...`**
-  - **`variable`** có nghĩa và ngắn 
+  - **`variable`** có nghĩa và ngắn
     - **`boolean` ==> `isActive, isEnabled, isWorking, isCompleted, isRunning, hasPermission, isAuthorized, isAccepted, isConfirmed, hasErrors,...`**
     - **`int` ==> `quantity, count, number, total, index, position, offset, length, size, capacity, dimension,...`**
     - **`double` ==> `amount, price, value, balance, ratio, percentage, proportion, distance, length, size, measurement,...`**
     - **`String` ==> `fullName,...`**
     - **`List` ==> `customers, clientList,...`**
 - Constant nên viết hoa hết, phân cách giữa các cụm từ bằng **`_`** và bắt đầu có final ở trước **==> Vd: MAX_SPEED**
+  - **`public final static`** hay **`public static final`** đều được nhưng thường hay dùng **`final static`**
 - package nên viết thường hết, bắt đầu bằng **`domain.organization.name`** ==> **Vd: edu.nlu.exercise**
 
 **[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
