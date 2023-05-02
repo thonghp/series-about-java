@@ -1,0 +1,177 @@
+# Format
+
+## Mục lục nội dung
+
+- [1. Printf và String format](#1-printf-và-string-format)
+- [2. Conversion](#2-conversion)
+- [3. Precision](#3-precision)
+- [4. Width](#4-width)
+- [5. Flag](#5-flag)
+- [6. Argument index](#6-argument-index)
+- [7. Đặc biệt](#7-đặc-biệt)
+
+## 1. Printf và String format
+
+- Về cơ bản cả **`printf()`** và **`String.format()`** đều format như nhau nhưng **`printf()`** sẽ format xong in ra luôn còn **`String.format()`** sẽ chỉ format thành String.
+
+**Syntax**
+
+- **`%[argument_index$][flags][width][.precision]conversion`**
+
+## 2. Conversion
+
+Dưới đây là một số conversion thường dùng
+
+![conversion](/assets/day8-conversion.jpg)
+
+```java
+int a1 = 1, a3 = 300;
+double a2 = 211.1;
+System.out.printf("%d %f %s %b", a1, a2, a3, a1);
+/*
+ * a1 format decimal integer ==> 1
+ * a2 format floating-point, ở phái sau . có sáu số ==> 211.100000
+ * a3 format string ==> 300 lúc này là string
+ * a1 format boolean ==> true (1 là true)
+ */
+```
+
+**Lưu ý**
+
+- Biến **`int`** không thể format sang **`%f`** hay **`%e`**
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 3. Precision
+
+- Định dạng các giá trị với độ chính xác
+- Áp dụng cho conversion **`f, e, g, s`**
+
+```java
+String s = "Hello"; 
+System.out.printf("%.4s", s); // hell
+
+double f = 1.21; // 1.210000
+System.out.printf("%.4f", f); // 1.2100
+System.out.printf("%.8f", f); // 1.21000000
+System.out.printf("%.1f", f); // 1.2
+/**
+ * %0.xf nếu dùng 0 đứng trước precision cho f sẽ gây lỗi
+ */  
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 4. Width
+
+- width **`>`** độ dài đối tượng format ==> thêm **`" "`** ở phía trước sao cho lengh của đối tượng + **`" "`** bằng với width. Ngược lại **`<=`** đối tượng format thì thôi
+
+```java
+boolean b = true;
+char c = 'c';
+int d = 3;
+double f = 1.2;
+String s = "Hello";
+
+System.out.printf("%3c", c); // có 2 " " ở phía trước ký tự c
+System.out.printf("%6b", b); // có 2 " " ở phía trước
+/*
+ * đối với char width từ 2 trở lên sẽ thêm " " ở phía trước
+ * boolean từ 5 trở lên đối với true và 6 đối với false
+ * floating-point mặc định có độ chính xác là 6 ở phía sau + 1 . và số trước 
+ *      dấu chấm vậy để thêm space buộc phải hơn 7 + số ký tự trước dấu chấm
+ * integer với string thì cứ lơn hơn là đươc
+ */
+```
+
+**Lưu ý**
+
+- Mặc định width khi thiếu sẽ thêm khoảng trắng ở phía trước và dịch sang phải
+- Muốn dịch sang trái và thêm khoảng trắng bên phải sử dụng **`-`**
+
+```java
+System.out.printf("%8d %8s %8.2f\n", 1234, "Java", 5.63);
+System.out.printf("%-8d %-8s %-8.2f", 1234, "Java", 5.63);
+```
+
+![width](/assets/day8-width.jpg)
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 5. Flag
+
+```java
+int d = 5, n = -5, v = -235, t = 1234567;
+
+System.out.printf("%04d", d); // 0005
+/*
+ * %04d => đệm các số 0 ở phía trước thay vì space
+ */
+
+// chuyển sang hex
+System.out.printf("%#x", d); // 0x5
+
+System.out.printf("% d", d); // _5
+/**
+ * thêm 1 space phía trước
+ * chỉ dùng được số dương
+ * chỉ có thể có 1 space như % d chứ ko thể nhiều space hơn
+ */ 
+
+System.out.printf("%+d", d); // +5
+/**
+ * Chỉ áp dụng cho số dương và dùng trong format toạ độ
+ */ 
+
+// giá trị âm sẽ bị bỏ trong ngoặc và chỉ dùng cho số âm
+System.out.printf("%(d", n); // (5)
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 6. Argument index
+
+- Dùng để gán vị trí chỉ định hiển thị
+
+```java
+int a1 = 1, a2 = 2, a3 = 3;
+System.out.printf("vị trí a1 = %3$d vị trí a2 = %1$d vị trí a3 = %2$d", a1, a2, a3);
+/*
+ * %3$d ==> 3 đại diện cho vị trí thứ 3 kiểu d 
+ *      ==> a1 sẽ được hiển thị từ giá trị của a3
+ * ==> màn hình lúc in ra sẽ là 3 1 2 <=> a3 
+ */
+System.out.printf("vị trí a1 = %3$d vị trí a2 = %<d", a1, a2);
+/*
+ * màn hình sẽ in ra là 3 3
+ * %<d ==> copy kiểu ở phía trước
+ * nếu ở phía trước không có mà dùng format trên sẽ gây lỗi
+ */ 
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 7. Đặc biệt
+
+```java
+int d = 12345678;
+// ,1d ,2d ,3d ,nd đều như nhau đều 3 số cách , nên dùng như dưới cho hợp lý
+System.out.printf("%,d", d); // 12,345,678
+
+double f = 12345678.263;
+// .4f sau hiểu là precision
+System.out.printf("%,.4f", f); // 12,345,678.2630
+
+System.out.printf("%.2f%%", 75.23); // 75.23%
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## Xem thêm bài viết khác
+
+- [Char - String](day7.md)
+- [Loop](day9.md)
+
+
+
+

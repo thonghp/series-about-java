@@ -14,3 +14,5 @@
 | Day 4: Comment - scanner - variable - naming convention      | [Link](day4.md) |
 | Day 5: Datatype - Operator - Math - Type Convention - Import | [Link](day5.md) |
 | Day 6: If - Switch                                           | [Link](day6.md) |
+| Day 7: Char - String                                         | [Link](day7.md) |
+| Day 8: Format                                                | [Link](day8.md) |
