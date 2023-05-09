@@ -1,0 +1,263 @@
+# Loop
+
+## Mục lục nội dung
+
+- [1. while](#1-while)
+- [2. do while](#2-do-while)
+- [3. for](#3-for)
+- [4. for each](#4-for-each)
+- [5. Sự khác nhau giữa for và for-each](#5-sự-khác-nhau-giữa-for-và-for-each)
+- [6. Jump statement](#6-jump-statement)
+  - [6.1 break](#61-break)
+  - [6.2 continue](#62-continue)
+  - [6.3 return](#63-return)
+
+## 1. while
+
+- Sử dụng khi số lần lặp chưa xác định
+
+**Syntax**
+
+```java
+while (loop-continuation-condition) {
+    statement(s)
+}
+```
+
+**Demo**
+
+```java
+int i = 0;
+while (i < 5) {
+  System.out.println(i); // 0 1 2 3 4
+  i++; // để tránh loop vô hạn
+}
+System.out.println(i); // 5
+/**
+ * while(true) ==> vòng lặp vô hạn, dùng cho điều kiện chưa biết trước
+ * để dừng vòng lặp vô hạn nhấn ctrl + c
+ */
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 2. do while
+
+- Sử dụng khi số lần lặp không xác định
+- Luôn thực thi câu lệnh trong **`do`** trước khi kiểm tra điều kiện **`while`**, kể cả khi điều kiện **`while`** không thỏa
+
+**Syntax**
+
+```java
+do {
+    statement(s)
+} while (expression);
+```
+
+**Demo**
+
+```java
+int i = 1;
+// in ra 1
+do {
+  System.out.println(i);
+  i++;
+} while (i > 2);
+
+int i = 1;
+do {
+    System.out.println(i); // 1 2 3 4
+    i++;
+} while (i < 5);
+
+int i;
+do {
+    i = 1;
+    System.out.println(i); // vòng lặp vô hạn 1
+    i++;
+} while (i < 5);
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 3. for
+
+- Sử dụng khi số lần lặp xác định
+
+**Syntax**
+
+```java
+for (initial-action; loop-continuation-condition; action-after-each-iteration) {
+    statement(s)
+}
+// <==>
+initial-action;
+while (loop-continuation-condition) {
+  action-after-each-iteration;
+}
+
+for (;loop-continuation-condition;){} // <=> while (loop-continuation-condition){}
+```
+
+**Demo**
+
+```java
+for (int i = 0; i < 5; i++) {
+  System.out.println(i);
+}
+
+// truy cập i ngoài vòng for
+int i;
+for (i = 0; i < 5; i++) {}
+System.out.println(i); // 5
+
+for (;;) {} // <=> for (;true;) {} <=> while (true){}
+
+// initial-action có thể có 0 hoặc nhiều khai báo biến
+for (int i = 0, j = 0; i + j < 10; i++, j++) {}
+
+// action-after-each-iteration có thể có 0 hoặc nhiều câu lệnh
+for (int i = 1; i < 100; System.out.println(i), i++);
+/**
+ * Thường thì initial-action là control variable được khi khởi
+ * tạo giá trị còn action-after-each-iteration là control
+ * variable increment hay decrement
+ */
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 4. for each
+
+- Sử dụng để lặp qua array và collection
+
+**Syntax**
+
+```java
+for(data_type variable : array) {
+  ...
+}
+```
+
+**Demo**
+
+```java
+int[] number = {1, 2, 3, 4, 5};
+for (int i : number) {
+    System.out.println(i); // [1,2,3,4,5]
+}
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 5. Sự khác nhau giữa for và for-each
+
+| for                       | for-each                                         |
+| ------------------------- | ------------------------------------------------ |
+| tùy chỉnh bộ đếm để duyệt | mỗi lần duyệt tăng bộ đếm lên 1 lần              |
+| tất cả trường hợp         | chỉ dùng trong array(dạng 1 chiều) và collection |
+| duyệt tới hoặc lùi        | chỉ có thể duyệt tới                             |
+| có thể thao tác           | Không thể thao tác ở vị trí chỉ định khi duyệt   |
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 6. Jump statement
+
+### 6.1 break
+
+**Unlabled**
+
+- **Dừng thực thi ngay lập tức** thoát khỏi vòng lặp hiện tại chuyển đến câu lệnh tiếp theo ngoài vòng lặp, sử dụng trong **`switch`** và **loop**
+
+```java
+// sử dụng in bên trong một loop lồng thì phải khởi tạo giá trị
+int out, in = 0;
+for (out = 0; out < 10; out++) {
+    for (in = 0; in < 20; in++) {
+        if (in > 10) break;
+    }
+    // 0 -> 9 - 11
+    System.out.println("inside out = " + out + ", in = " + in);
+}
+// 10 - 11
+System.out.println("out = " + out + ", in = " + in);
+```
+
+**Labeled**
+
+- Kết thúc một câu lệnh bên ngoài xác định bởi nhãn
+
+```java
+int out, in = 0;
+outer:
+for (out = 0; out < 10; out++) {
+    for (in = 0; in < 20; in++) {
+        if (in > 10) break outer;
+    }
+    System.out.println("inside out = " + out + ", in = " + in);
+}
+// chỉ in câu này 0 - 11
+System.out.println("outer out = " + out + ", in = " + in);
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 6.2 continue
+
+**Unlabled**
+
+- **Bỏ qua điều kiện thỏa** thoát khỏi lần lặp hiện tại chuyển đến lần lặp tiếp theo, sử dụng trong **`for`** loop và **`while`** loop
+
+```java
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
+  }
+  System.out.println(i); // 0,1,2,3,5,6,7,8,9
+}
+```
+
+**Labeled**
+
+```java
+int out, in = 0;
+test:
+for (out = 0; out < 10; out++) {
+    for (in = 0; in < 20; in++) {
+        if (in > 10) continue test;
+    }
+    System.out.println("inside out = " + out + ", in = " + in);
+}
+// 10 - 11
+System.out.println("outer out = " + out + ", in = " + in);
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+### 6.3 return
+
+- Câu lệnh **`return`** có 2 dạng: một là **return value** hay là **`return`** để thoát khỏi method
+
+```java
+public int getAge() {
+  return 22;
+}
+
+public void displayDayOfWeek(int day) {
+	if (day == 1) {
+		System.out.println("Sunday");
+		return;
+	}
+	if (day == 2){
+		System.out.println("Monday");
+		return;
+	}
+}
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## Xem thêm bài viết khác
+
+- [Format](day8.md)
+- [Method](day10.md)
