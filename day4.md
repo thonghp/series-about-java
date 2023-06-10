@@ -73,7 +73,7 @@ nextDouble() ==> đọc giá trị double
 
 - Thiên về kiểu **camel**.
 - Bắt đầu bằng chữ thường, **`$`** hay **`_`** và không nên bắt đầu bằng number hay ký hiệu khác.
-  - Nhưng không nên dùng các ký hiệu **`$`** và **\_** để đặt tên ở vị trí đầu tiên.
+  - Nhưng không nên dùng các ký hiệu **`$`** và **`_`** để đặt tên ở vị trí đầu tiên.
 - Không sử dụng java keyword để đặt tên.
   - Có 2 keyword không sử dụng trong java là **`const, goto`**.
 
