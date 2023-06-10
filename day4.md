@@ -34,7 +34,7 @@ public class DemoJavaProgram {
 
 - **`\\`** comment với nội dung ngắn và chỉ trên 1 dòng.
 - **`/* */`** comment khối với nội dung mô tả nhiều.
-- **`/** \*/`\*\* comment dành cho document (thường là document API).
+- **`/** */`** comment dành cho document (thường là document API).
 
 Quy tắc khi comment
 
