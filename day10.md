@@ -1,0 +1,157 @@
+# Method
+
+## Mục lục nội dung
+
+- [1. Khai báo method](#1-khai-báo-method)
+- [2. Gọi method](#2-gọi-method)
+- [3. Call stack trong method](#3-call-stack-trong-method)
+- [4. Pass by value](#4-pass-by-value)
+- [5. Overload method](#5-overload-method)
+
+## 1. Khai báo method
+
+**Syntax**
+
+```java
+modifier returnValueType methodName(list of parameters) {
+    ...
+}
+```
+
+**Demo**
+
+- Method trả về giá trị
+
+![method](/assets/day10-method.jpg)
+
+- Method không trả về giá trị
+
+```java
+// Nếu thoả đk return sẽ ngay lập tức thoát khỏi method
+public static void printGrade(double score) {
+    if (score < 0 || score > 100) {
+    System.out.println("Invalid score");
+    return;
+  }
+  if (score >= 90.0) {
+    System.out.println('A');
+  }
+}
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 2. Gọi method
+
+![call method](/assets/day10-call-method.jpg)
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 3. Call stack trong method
+
+- Mỗi khi 1 method được gọi, hệ thống sẽ tạo 1 **activation record** lưu trữ các tham số và biến cho method đó, đồng thời đặt **activation record** vào 1 vùng bộ nhớ **call stack**.
+  - Call stack còn được gọi là execution stack, runtime stack, machine stack hay **stack**.
+
+![call stack](/assets/day10-call-stack.jpg)
+
+**Giải thích cơ chế hoạt động**
+
+- Khi 1 method gọi 1 method khác, **activation record** của 1 method gọi sẽ giữ nguyên cộng thêm sẽ tạo **activation record** cho method được gọi.
+  - Như hình 1, method **`max()`** được gọi trong method **`main`** ngay lập tức sẽ tạo 1 **activation record** cho method **`max()`** như hình 2
+  - Sau khi thực thi xong (hình 3), nó sẽ xoá method **`max()`** và **`main`** khi xong nhiệm vụ như hình 4 và 5
+- Tất cả hoạt động trên diễn ra theo cơ chế stack **last-in, first-out - vào sau ra trước**
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 4. Pass by value
+
+- Khi ta gọi 1 method có đối số, giá trị của đối số sẽ được truyền cho tham số, này được gọi là **`pass by value`**.
+- Bài toán kinh điển trong **`pass by value`** là **`swap`**.
+
+```java
+public static void swap(int n1, int n2) {
+  int temp = n1;
+  n1 = n2;
+  n2 = temp;
+  System.out.println("n1 = " + n1 + " n2 = " + n2);
+}
+
+public static void main(String[] args) {
+   int num1 = 1;
+   int num2 = 2;
+   System.out.println("num1 = " + num1 + " num2 = " + num2); // 1 & 2
+   swap(num1, num2); // 2 & 1
+   System.out.println("num1 = " + num1 + " num2 = " + num2); // 1 & 2
+  }
+}
+```
+
+**Cơ chế hoạt động**
+
+![pass by value](/assets/day10-pass-by-value.jpg)
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## 5. Overload method
+
+- Nạp chồng phương thức là kỹ thuật nhiều method có cùng tên nhưng khác tham số truyền vào
+- Nạp chồng phương thức còn áp dụng trên constructor
+- Nếu đối số thoả nhiều phương thức thì lúc này method có độ khớp gần nhất sẽ được ưu tiên
+
+
+```java
+public static int max(int num1, int num2) {
+    return (num1 > num2) ? num1 : num2;
+}
+public static double max(double num1, double num2) {
+    return (num1 > num2) ? num1 : num2;
+}
+public static void main(String[] args) {
+    // int max() sẽ được gọi
+    System.out.println(max(9, 4)); // 9
+    // double max() sẽ được gọi
+    System.out.println(max(9.0, 5.4)); // 9.0
+    // double max() sẽ được gọi
+    System.out.println(max(9, 5.4)); // 9.0
+}
+```
+
+**Lưu ý**
+
+- Lỗi cùng đối số nhưng khác return type
+
+```java
+public static double max(double num1, double num2) {
+    return (num1 > num2) ? num1 : num2;
+}
+// method này sẽ gây lỗi compile
+public static int max(double num1, double num2) {
+    return (num1 > num2) ? num1 : num2;
+}
+```
+
+- Lỗi không biết method nào sẽ được gọi
+
+```java
+public static double max(double num1, double num2) {
+    System.out.println("method 1");
+    return (num1 > num2) ? num1 : num2;
+}
+public static double max(int num1, double num2) {
+    System.out.println("method 2");
+    return (num1 > num2) ? num1 : num2;
+}
+public static double max(double num1, int num2) {
+    System.out.println("method 3");
+    return (num1 > num2) ? num1 : num2;
+}
+// lúc này method 1, 2, 3 đều thoả đẫn đến lỗi compile không biết method nào
+System.out.println(max(4, 5));
+```
+
+**[⬆ Quay trở lại đầu trang](#mục-lục-nội-dung)**
+
+## Xem thêm bài viết khác
+
+- [Loop](day9.md)
+- [Array](day11.md)

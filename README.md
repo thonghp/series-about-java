@@ -6,13 +6,15 @@
 
 ## Các bài viết
 
-| Bài viết                                                     | Link            |
-| ------------------------------------------------------------ | --------------- |
-| Day 1: Máy tính - Chương trình                               | [Link](day1.md) |
-| Day 2: Operating System                                      | [Link](day2.md) |
-| Day 3: Java                                                  | [Link](day3.md) |
-| Day 4: Comment - scanner - variable - naming convention      | [Link](day4.md) |
-| Day 5: Datatype - Operator - Math - Type Convention - Import | [Link](day5.md) |
-| Day 6: If - Switch                                           | [Link](day6.md) |
-| Day 7: Char - String                                         | [Link](day7.md) |
-| Day 8: Format                                                | [Link](day8.md) |
+| Bài viết                                                     | Link             |
+| ------------------------------------------------------------ | ---------------- |
+| Day 1: Máy tính - Chương trình                               | [Link](day1.md)  |
+| Day 2: Operating System                                      | [Link](day2.md)  |
+| Day 3: Java                                                  | [Link](day3.md)  |
+| Day 4: Comment - scanner - variable - naming convention      | [Link](day4.md)  |
+| Day 5: Datatype - Operator - Math - Type Convention - Import | [Link](day5.md)  |
+| Day 6: If - Switch                                           | [Link](day6.md)  |
+| Day 7: Char - String                                         | [Link](day7.md)  |
+| Day 8: Format                                                | [Link](day8.md)  |
+| Day 9: Loop                                                  | [Link](day9.md)  |
+| Day 10: Method                                               | [Link](day10.md) |
