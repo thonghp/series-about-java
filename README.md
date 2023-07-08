@@ -17,5 +17,6 @@
 | Day 7: Char - String                                         | [Link](day007.md) |
 | Day 8: Format                                                | [Link](day008.md) |
 | Day 9: Loop                                                  | [Link](day009.md) |
-| Day 10: Method                                               | [Link](day010.md) |
-| Day 11: Array                                                | [Link](day011.md) |
+| Day 10: Method - Call stack - Pass by value - Overload       | [Link](day010.md) |
+| Day 11: Array - Pass by reference                            | [Link](day011.md) |
+| Day 12: Class - Constructor - Reference variable             | [Link](day012.md) |
