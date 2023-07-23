@@ -20,3 +20,6 @@
 | Day 10: Method - Call stack - Pass by value - Overload       | [Link](day010.md) |
 | Day 11: Array - Pass by reference                            | [Link](day011.md) |
 | Day 12: Class - Constructor - This - Reference variable      | [Link](day012.md) |
+| Day 13: Oop - Access modifier                                | [Link](day013.md) |
+| Day 14: Encapsulation                                        | [Link](day014.md) |
+| Day 15: Inheritance                                          | [Link](day015.md) |
