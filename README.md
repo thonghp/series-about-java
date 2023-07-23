@@ -19,4 +19,4 @@
 | Day 9: Loop                                                  | [Link](day009.md) |
 | Day 10: Method - Call stack - Pass by value - Overload       | [Link](day010.md) |
 | Day 11: Array - Pass by reference                            | [Link](day011.md) |
-| Day 12: Class - Constructor - Reference variable             | [Link](day012.md) |
+| Day 12: Class - Constructor - This - Reference variable      | [Link](day012.md) |
