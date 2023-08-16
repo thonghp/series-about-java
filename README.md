@@ -20,13 +20,13 @@
 | Day 10: Method - Call stack - Pass by value - Overload       | [Link](day010.md) |
 | Day 11: Array - Pass by reference                            | [Link](day011.md) |
 | Day 12: Wrapper class                                        | [Link](day012.md) |
-| Day 13: Các mối quan hệ giữa class                           | [Link](day018.md) |
-| Day 14: Class - Constructor - This - Reference variable      | [Link](day012.md) |
-| Day 15: Phạm vi của các biến                                 | [Link](day012.md) |
-| Day 16: Oop - Access modifier                                | [Link](day013.md) |
-| Day 17: Encapsulation                                        | [Link](day014.md) |
-| Day 18: Inheritance                                          | [Link](day015.md) |
-| Day 19: Instance of                                          | [Link](day018.md) |
-| Day 20: Polymorphism - equals object                         | [Link](day016.md) |
-| Day 21: Abstraction - Anonymous abstract class               | [Link](day017.md) |
-| Day 22: Interface                                            | [Link](day018.md) |
+| Day 13: Các mối quan hệ giữa class                           | [Link](day013.md) |
+| Day 14: Class - Constructor - This - Reference variable      | [Link](day014.md) |
+| Day 15: Phạm vi của các biến                                 | [Link](day015.md) |
+| Day 16: Oop - Access modifier                                | [Link](day016.md) |
+| Day 17: Encapsulation                                        | [Link](day017.md) |
+| Day 18: Inheritance                                          | [Link](day018.md) |
+| Day 19: Instance of                                          | [Link](day019.md) |
+| Day 20: Polymorphism - equals object                         | [Link](day020.md) |
+| Day 21: Abstraction - Anonymous abstract class               | [Link](day021.md) |
+| Day 22: Interface                                            | [Link](day022.md) |
