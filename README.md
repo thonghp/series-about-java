@@ -31,3 +31,4 @@
 | Day 21: Polymorphism - equals object                         | [Link](day021.md) |
 | Day 22: Abstraction - Anonymous abstract class               | [Link](day022.md) |
 | Day 23: Interface                                            | [Link](day023.md) |
+| Day 24: Collection Framework - Iterable - Iterator           | [Link](day024.md) |
